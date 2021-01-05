@@ -3,27 +3,30 @@
     "displayName": "Loadit Test Runner",
     "description": "Allows to run Loadit tests directly from VS Code via context menu or built-in commands",
     "version": "1.0.0",
-    "publisher": "lilbaek",
+    "publisher": "Loadit",
     "icon": "images/icon.png",
     "engines": {
         "vscode": "^1.52.0"
     },
     "categories": [
-        "Other",
-        "Debuggers"
+        "Other"
     ],
     "keywords": [
         "C#",
         "csharp",
         "Test",
-        "Runner"
+        "Loadit"
     ],
     "activationEvents": [
         "onLanguage:csharp"
     ],
-    "main": "./out/src/extension.js",
+    "main": "./out/extension.js",
     "contributes": {
         "commands": [
+            {
+                "command": "loadit.runTestsFile",
+                "title": "Loadit: Run Test"
+            },
             {
                 "command": "loadit.runTestFile",
                 "title": "Loadit: Run Test"
@@ -32,14 +35,14 @@
         "menus": {
             "editor/context": [
                 {
-                    "when": "editorLangId == csharp && testcaferunner.readyForUX",
-                    "command": "loadit.runTestFile",
+                    "when": "editorLangId == csharp",
+                    "command": "loadit.runTestsFile",
                     "group": "loaditrunner"
                 }
             ],
             "explorer/context": [
                 {
-                    "when": "resourceLangId == csharp && testcaferunner.readyForUX",
+                    "when": "resourceLangId == csharp",
                     "command": "loadit.runTestFile",
                     "group": "loaditrunner"
                 }
